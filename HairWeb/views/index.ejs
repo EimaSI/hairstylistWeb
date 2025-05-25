@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A then B Animation</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+    }
+
+    .container {
+      position: relative;
+      height: 100px;
+    }
+
+    .letter {
+      position: absolute;
+      font-size: 80px;
+      font-weight: bold;
+      color: #00f7ff;
+      opacity: 0;
+    }
+
+    .letter.a {
+      animation: dropIn 1s ease-out forwards;
+    }
+
+    .letter.b {
+      animation: fadeIn 1s ease-in forwards;
+      animation-delay: 1.1s; /* starts after A animation */
+    }
+
+    @keyframes dropIn {
+      0% {
+        top: -100px;
+        opacity: 0;
+      }
+      100% {
+        top: 0;
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        top: 0;
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        top: 0;
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="letter a">A</div>
+    <div class="letter b">B</div>
+  </div>
+</body>
+</html>
